@@ -1,0 +1,61 @@
+/* Michael Anglemier, 9/19/2025, murach_html_css textbook */
+
+:root {
+	--color_1: orange;
+	--color_2: brown;
+    --color_3: black;
+    --color_4: silver;
+}
+
+body {
+    font-family: verdana;
+    font-size: 95%;
+}
+ul {
+    font-size: 95%;
+    line-height: 150%;
+}
+a {
+    font-weight: bold;
+}
+
+a:link {
+    color: var(--color_2);
+    }
+a:visited {
+    color: var(--color_3);
+    }
+a:hover { 
+    color: var(--color_1);
+    }
+
+
+header {
+    text-align: center;
+    & img {
+        float: left;
+    }
+    & h1 {
+        font-size: 230%;
+        color: var(--color_1);
+    }
+    & h3 {
+        color: var(--color_2);
+        font-style: italic;
+    }
+}
+
+main {
+    & a.date_passed {
+        color: var(--color_4);
+    } 
+}
+
+footer {
+    & p.copyright {
+        font-size: 80%;
+        float: right;
+    }
+}
+
+/* Michael Anglemier, 9/19/2025, murach_html_css textbook */
