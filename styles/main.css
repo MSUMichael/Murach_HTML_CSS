@@ -5,25 +5,29 @@
 	--color_2: brown;
     --color_3: black;
     --color_4: silver;
+    --color_5: rgb(254, 233, 198);
 }
 
+
 body {
-    font-family: verdana;
-    font-size: 95%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0em 3em;
 }
-ul {
-    font-size: 95%;
+ul, p {
     line-height: 150%;
 }
 a {
     font-weight: bold;
 }
 
-a:link {
+h1, h2, h3, p {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+    
+
+a:link, a:visited {
     color: var(--color_2);
-    }
-a:visited {
-    color: var(--color_3);
     }
 a:hover { 
     color: var(--color_1);
@@ -31,29 +35,56 @@ a:hover {
 
 
 header {
-    text-align: center;
+    text-align: left;
     & img {
         float: left;
+        padding: 0.5em 2em 0em 0em;
     }
-    & h1 {
-        font-size: 230%;
+    & h2 {
+        font-size: 250%;
         color: var(--color_1);
+        margin-bottom: 0em;
     }
     & h3 {
-        color: var(--color_2);
+        font-size: 135%;
+        color: var(--color_3);
         font-style: italic;
+        margin-top: 0.25em;
+        margin-bottom: 1em;
     }
+    border-bottom: 2px solid var(--color_1);
 }
 
 main {
+    display: grid;
+    grid-template-columns: 1fr 35%;
     & a.date_passed {
         color: var(--color_4);
     } 
 }
 
+aside {
+    background-color: var(--color_5);
+    border-radius: 1.5em;
+    margin: 1em 0em 1em 1em;
+    padding: 1em 1.5em;
+    max-height: fit-content;
+    & h2 {
+        margin-top: 0em;
+        margin-bottom: 0.2em;
+        font-size: 140%;
+    }
+    & h2.colored {
+        color: var(--color_2);
+        font-size: 130%;
+    }
+}
+
 footer {
+    padding-top: 0.5em;
+    border-top: 2px solid var(--color_1);
     & p.copyright {
-        font-size: 80%;
+        font-size: 90%;
         float: right;
     }
 }
