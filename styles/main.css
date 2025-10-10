@@ -1,4 +1,4 @@
-/* Michael Anglemier, 9/19/2025, murach_html_css textbook */
+/* Michael Anglemier, 9/19/2025 - 10/10/2025, murach_html_css textbook */
 
 :root {
 	--color_1: orange;
@@ -6,13 +6,31 @@
     --color_3: black;
     --color_4: silver;
     --color_5: rgb(254, 233, 198);
+
+    --body_margin_top_bottom: 0vh;
+    --body_margin_right_left: 2.5vw;
+    /*--body_margin_bottom: 0vh;
+    --body_margin_left: 0.01875vw;*/
+    --h1_h2_h3_margin-top: 1.4vh;
+    --h1_h2_h3_margin_bottom: 1.4vh;
+
+    --header_image_right_padding: 2.5vw;
+
+    --header_img_width: 5vw;
 }
 
+html {
+    font-size: clamp(12px, 1.2vw, 20px);
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0em 3em;
+    /*margin: 0px 36px;*/
+    margin: var(--body_margin_top_bottom) var(--body_margin_right_left);
+
 }
+
+
 ul, p {
     line-height: 150%;
 }
@@ -20,9 +38,49 @@ a {
     font-weight: bold;
 }
 
-h1, h2, h3, p {
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
+h1, h2, h3 {
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /*
+    margin-top: var(--h1_h2_h3_margin-top);
+    margin-bottom: var(--h1_h2_h3_margin_bottom);
+    */
+}
+
+form.membership {
+    font-size: 120%;
+
+    & label {
+        margin-bottom: 15px;
+    }
+    & input {
+        font-size: inherit;
+        width: 95%;
+        margin-bottom: clamp(10px, 1.1em, 20px);
+    }
+    & select {
+        font-size: inherit;
+        width: 95%;
+        margin-bottom: clamp(10px, 1.1em, 20px);
+    }
+    & button {
+        font-size: inherit;
+        padding: 0.5em;
+        width: 8em;
+        font-weight: bold;
+        color: white;
+        background-color: var(--color_2);
+        margin-bottom: clamp(10px, 1.1em, 20px);
+    }
+    button:hover {
+            color: var(--color_3);
+            background-color: var(--color_1);
+        }
+    input, select, button {
+        border-radius: 5px;
+        padding: 0.15em;
+    }
 }
     
 
@@ -35,43 +93,126 @@ a:hover {
 
 
 header {
+
+    font-size: clamp(10px, 1.2vw, 20px);
+
     text-align: left;
     & img {
         float: left;
-        padding: 0.5em 2em 0em 0em;
+        /*padding: 7px 30px 0px 0px;*/
+        padding: 7px var(--header_image_right_padding) 0px 0px;
+        
+        width: var(--header_img_width); /*80px*/
+        min-width: 40px;
+        height: auto; /*70px*/
     }
     & h2 {
         font-size: 250%;
         color: var(--color_1);
-        margin-bottom: 0em;
+        margin-bottom: 0px;
     }
     & h3 {
         font-size: 135%;
         color: var(--color_3);
         font-style: italic;
-        margin-top: 0.25em;
-        margin-bottom: 1em;
+        margin-top: 4px;
+        margin-bottom: 16px;
     }
-    border-bottom: 2px solid var(--color_1);
+    /*border-bottom: 2px solid var(--color_1);*/
+}
+
+nav.navbar {
+
+    background-color: var(--color_3);
+
+    a:link, a:visited {
+    color: white;
+    }
+    a:hover { 
+    color: var(--color_1);
+    }
+
+    & ul {
+        margin: 0;
+        list-style-type: none;
+    }
+    & ul.menu{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        & li:has(.submenu){
+                position: relative;
+                &:hover > .submenu {
+                display: block;
+                background-color: var(--color_3);
+                }
+            }
+    }
+    
+    & ul.submenu{
+        position: absolute;
+        padding: 0;
+        display: none;
+        font-size: 80%;
+    }
+    
+    & a.submenu_link::after{
+        content: " \25bc";
+        font-size: small;
+    }
+    & li {
+        margin: 0.3em;
+    }
+    & a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        padding: 0.5em 1em;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 135%;
+    }
+    a:hover { 
+    color: var(--color_1);
+    }
+    a.current {
+        border: 3px solid var(--color_1);
+        border-radius: 16px;
+    }
 }
 
 main {
+    /*
     display: grid;
     grid-template-columns: 1fr 35%;
+    */
     & a.date_passed {
         color: var(--color_4);
     } 
+
+    a:link, a:visited {
+    color: var(--color_2);
+    }
+    a:hover { 
+    color: var(--color_1);
+    }
+
+    
+
 }
 
 aside {
     background-color: var(--color_5);
-    border-radius: 1.5em;
-    margin: 1em 0em 1em 1em;
-    padding: 1em 1.5em;
+    border-radius: 16px;
+    /*
+    margin: 16px 0px 16px 16px;
+    */
+    padding: 16px 24px;
     max-height: fit-content;
     & h2 {
-        margin-top: 0em;
-        margin-bottom: 0.2em;
+        margin-top: 0px;
+        margin-bottom: 4px;
         font-size: 140%;
     }
     & h2.colored {
@@ -81,7 +222,7 @@ aside {
 }
 
 footer {
-    padding-top: 0.5em;
+    padding-top: 6px;
     border-top: 2px solid var(--color_1);
     & p.copyright {
         font-size: 90%;
@@ -89,4 +230,29 @@ footer {
     }
 }
 
-/* Michael Anglemier, 9/19/2025, murach_html_css textbook */
+@media only screen and (max-width: 720px) {
+
+    aside{
+            margin: 16px 0px 16px 0px;
+    }
+    img.sampson_img_1 {
+        width: clamp(300px, 90vw, 600px); /*600*/
+        height: auto; /*360*/
+    }
+}
+@media only screen and (min-width: 720px) {
+
+    main{
+        display: grid;
+        grid-template-columns: 1fr 35%;
+    }
+    aside{
+            margin: 16px 0px 16px 16px;
+    }
+    img.sampson_img_1 {
+        width: clamp(120px, 60vw, 600px); /*600*/
+        height: auto; /*360*/
+    }
+}
+
+/* Michael Anglemier, murach_html_css textbook */
